@@ -1,4 +1,3 @@
-//¸êºŞ3b ©Pªé¦w 104403034
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,37 +11,37 @@ public class primefactorcalculate {
 		int stopFlag=0;
 		do {
 			try {
-				String firstString = JOptionPane.showInputDialog(null,"½Ğ¿é¤J¤@­Ó¥¿¾ã¼Æ:","§ä½è¦]¼Æ",JOptionPane.PLAIN_MESSAGE);
-				if (firstString == null) {			//¦pªGuser¨S¿é¤J©Î¿ï¾Ü¨ú®ø 
+				String firstString = JOptionPane.showInputDialog(null,"è«‹è¼¸å…¥ä¸€å€‹æ­£æ•´æ•¸:","æ‰¾è³ªå› æ•¸",JOptionPane.PLAIN_MESSAGE);
+				if (firstString == null) {			//å¦‚æœuseræ²’è¼¸å…¥æˆ–é¸æ“‡å–æ¶ˆ 
 					JOptionPane.showMessageDialog(null, "nothing~~","bye!!",JOptionPane.PLAIN_MESSAGE);
 					stopFlag = 1;
 					System.exit(0);
 				}
-				int firstInt = Integer.parseInt(firstString); //§âfirststring Âà¦¨¾ã¼Æ
-				int positivecheck = Integer.signum(firstInt); //´ú¸Õ¬O¤£¬O¥¿¼Æ
-				if (positivecheck<=0) { 		//¦pªG¿é¤J¬O­t¼Æ©Î0
-					JOptionPane.showMessageDialog(null, "¿ù»~®æ¦¡,­«·s¿é¤J","wrong!!",JOptionPane.PLAIN_MESSAGE);
+				int firstInt = Integer.parseInt(firstString); //æŠŠfirststring è½‰æˆæ•´æ•¸
+				int positivecheck = Integer.signum(firstInt); //æ¸¬è©¦æ˜¯ä¸æ˜¯æ­£æ•¸
+				if (positivecheck<=0) { 		//å¦‚æœè¼¸å…¥æ˜¯è² æ•¸æˆ–0
+					JOptionPane.showMessageDialog(null, "éŒ¯èª¤æ ¼å¼,é‡æ–°è¼¸å…¥","wrong!!",JOptionPane.PLAIN_MESSAGE);
 				}else {
 					HashSet<Integer>primefac = new HashSet<Integer>();
-					primefac = primefactor(firstInt); // §â¥¦¶Çµ¹primefactor­pºâ¨Ã¥B¦s¨úretirning hashset
+					primefac = primefactor(firstInt); // æŠŠå®ƒå‚³çµ¦primefactorè¨ˆç®—ä¸¦ä¸”å­˜å–retirning hashset
 					
-					Set<Integer> primeSorted = new TreeSet<Integer>(primefac); //treeset§â¥¦±Æ§Ç
+					Set<Integer> primeSorted = new TreeSet<Integer>(primefac); //treesetæŠŠå®ƒæ’åº
 					Iterator<Integer> primeSet = primeSorted.iterator();
 					if (primefac.size()==1) {
-						if (firstInt==1) {  //¦pªG¿é¤J¬O1
-							JOptionPane.showMessageDialog(null, "1 ¤£¬O½è¼Æ","one",JOptionPane.PLAIN_MESSAGE);	
-						}else { 		//¦pªG¿é¤J¥u¦³1­Ó½è¼Æªº¼Æ¦r
+						if (firstInt==1) {  //å¦‚æœè¼¸å…¥æ˜¯1
+							JOptionPane.showMessageDialog(null, "1 ä¸æ˜¯è³ªæ•¸","one",JOptionPane.PLAIN_MESSAGE);	
+						}else { 		//å¦‚æœè¼¸å…¥åªæœ‰1å€‹è³ªæ•¸çš„æ•¸å­—
 							JOptionPane.showMessageDialog(null, primeSet.next()+ "is a prime number.","prime number",JOptionPane.PLAIN_MESSAGE);}		
-						}else {		//¦pªG¿é¤Jªº¬O¦h©ó¤@­Ó½è¦]¼Æªº¼Æ¦r
+						}else {		//å¦‚æœè¼¸å…¥çš„æ˜¯å¤šæ–¼ä¸€å€‹è³ªå› æ•¸çš„æ•¸å­—
 							while (primeSet.hasNext()) {
 								JOptionPane.showMessageDialog(null, primeSet.next() + " is a prime factor of " + firstInt, "Prime factor " + primeCount +" of " + primefac.size(), JOptionPane.PLAIN_MESSAGE);
 							primeCount++;
 							}		
 						}
-						primeCount=1;  //­«³]¬°1µ¹­n·s¿é¤Jªº¼Æ¦r
+						primeCount=1;  //é‡è¨­ç‚º1çµ¦è¦æ–°è¼¸å…¥çš„æ•¸å­—
 					}
-				}catch(NumberFormatException e) {		//exception:¤£¬O¾ã¼Æªº
-					JOptionPane.showMessageDialog(null, "¿ù»~®æ¦¡,­«·s¿é¤J","wrong!!",JOptionPane.PLAIN_MESSAGE);
+				}catch(NumberFormatException e) {		//exception:ä¸æ˜¯æ•´æ•¸çš„
+					JOptionPane.showMessageDialog(null, "éŒ¯èª¤æ ¼å¼,é‡æ–°è¼¸å…¥","wrong!!",JOptionPane.PLAIN_MESSAGE);
 				}
 			}while (stopFlag == 0);
 		}
@@ -51,13 +50,13 @@ public class primefactorcalculate {
 			HashSet<Integer> primes = new HashSet<Integer>();
 			  long copyOfInput = n;
 		        if (n == 1){
-		        	//·í¥u¦³1­Ó½è¼Æ®É
+		        	//ç•¶åªæœ‰1å€‹è³ªæ•¸æ™‚
 		        	primes.add(n);
 		        } else {
-		        	//·í¤£¥u¦³1­Ó½è¼Æ®É,¥ş®³¨Ã¥B­p¼Æ
+		        	//ç•¶ä¸åªæœ‰1å€‹è³ªæ•¸æ™‚,å…¨æ‹¿ä¸¦ä¸”è¨ˆæ•¸
 		        	for (int i = 2; i <= copyOfInput; i++) {
 		        		if (copyOfInput % i == 0) {
-		        			primes.add(i); 		//·s¼W½è¦]¼Æ¥h HashSet										
+		        			primes.add(i); 		//æ–°å¢è³ªå› æ•¸å» HashSet										
 		        			copyOfInput /= i;
 		        			i--;
 		        		}
